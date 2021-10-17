@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                        :+:      :+:    :+:  */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dwarlock <dwarlock@students.21-school.ru>  +#+  +:+       +#+        */
+/*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 23:23:41 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/12 23:23:41 by kirus            ###   ########.fr       */
+/*   Created: 2021/10/17 15:11:53 by kirus             #+#    #+#             */
+/*   Updated: 2021/10/17 15:11:56 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_strncmp(const char *str1, const char *str2, size_t count)
+void	*ft_calloc(size_t len, size_t size)
 {
-	int	diff;
-	int	i;
-
-	diff = 0;
-	i = 0;
-	while (diff == 0 && count != 0 && (str1[i] != '\0' || str2[i] != '\0'))
-	{
-		diff = str1[i] - str2[i];
-		i++;
-		count--;
-	}
-	return (diff);
+	return (malloc(len * size));
 }

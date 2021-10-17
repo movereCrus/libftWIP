@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                        :+:      :+:    :+:  */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dwarlock <dwarlock@students.21-school.ru>  +#+  +:+       +#+        */
+/*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 23:23:41 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/12 23:23:41 by kirus            ###   ########.fr       */
+/*   Created: 2021/10/17 16:17:14 by kirus             #+#    #+#             */
+/*   Updated: 2021/10/17 16:18:47 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_strncmp(const char *str1, const char *str2, size_t count)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	diff;
-	int	i;
+	char				*subs;
+	unsigned int		i;
 
-	diff = 0;
 	i = 0;
-	while (diff == 0 && count != 0 && (str1[i] != '\0' || str2[i] != '\0'))
+	subs = (char *)malloc(len + 1);
+	if (subs == NULL)
+		return (NULL);
+	while (len > 0 && s[start + i] != '\0')
 	{
-		diff = str1[i] - str2[i];
+		subs[i] = s[start + i];
 		i++;
-		count--;
+		len--;
 	}
-	return (diff);
+	subs[i] = '\0';
+	return (subs);
 }
