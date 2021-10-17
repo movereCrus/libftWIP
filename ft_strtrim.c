@@ -6,7 +6,7 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 23:08:11 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/17 23:10:16 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/17 23:20:39 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static	int	st_eos(char *s10, char *set0, size_t bos)
 	return (eos);
 }
 
-char	*st_mallcpy(size_t eos, size_t bos, char const *s1)
+char	*st_mallcpy(size_t eos, size_t bos, const char *s1)
 {
 	size_t	i;
 	char	*s10;
@@ -81,7 +81,7 @@ char	*st_mallcpy(size_t eos, size_t bos, char const *s1)
 	return (s10);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {
 	size_t	bos;
 	size_t	eos;
