@@ -6,7 +6,7 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 16:46:56 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/17 16:47:03 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/17 23:20:11 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	st_strlen(char const *arr)
 	return (c);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char			*news;
 	unsigned int	i;

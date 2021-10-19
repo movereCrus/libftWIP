@@ -6,13 +6,13 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 16:17:14 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/17 16:18:47 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/17 23:20:13 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char				*subs;
 	unsigned int		i;
