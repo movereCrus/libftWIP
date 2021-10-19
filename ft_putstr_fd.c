@@ -1,48 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/17 16:46:56 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/17 16:47:03 by kirus            ###   ########.fr       */
+/*   Created: 2021/10/19 22:20:27 by kirus             #+#    #+#             */
+/*   Updated: 2021/10/19 22:35:29 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static size_t	st_strlen(char const *arr)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	c;
-
-	c = 0;
-	while (arr[c] != '\0')
-		c++;
-	return (c);
-}
-
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char			*news;
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	news = (char *)malloc(st_strlen(s1) + st_strlen(s2) + 1);
-	if (news == NULL)
-		return (NULL);
-	while (*s1 != '\0')
+	while (s[i] != '\0')
 	{
-		news[i] = *s1;
+		write(fd, &s[i], 1);
 		i++;
-		s1++;
 	}
-	while (*s2 != '\0')
-	{
-		news[i] = *s2;
-		i++;
-		s2++;
-	}
-	news[i] = '\0';
-	return (news);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/17 16:46:56 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/17 16:47:03 by kirus            ###   ########.fr       */
+/*   Created: 2021/10/19 21:36:56 by kirus             #+#    #+#             */
+/*   Updated: 2021/10/19 21:58:54 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,19 @@ static size_t	st_strlen(char const *arr)
 	return (c);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*news;
-	unsigned int	i;
+	char	*str;
+	int		len;
+	int		i;
 
-	i = 0;
-	news = (char *)malloc(st_strlen(s1) + st_strlen(s2) + 1);
-	if (news == NULL)
-		return (NULL);
-	while (*s1 != '\0')
+	len = st_strlen(s);
+	str = (char *)malloc((len + 1) * sizeof(char));
+	i = len;
+	while (i > 0)
 	{
-		news[i] = *s1;
-		i++;
-		s1++;
+		str[len - i] = f(len - i, s[len - i]);
+		i--;
 	}
-	while (*s2 != '\0')
-	{
-		news[i] = *s2;
-		i++;
-		s2++;
-	}
-	news[i] = '\0';
-	return (news);
+	return (str);
 }

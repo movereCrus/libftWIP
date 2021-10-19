@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 
-static size_t	st_strlen(const char *arr)
+static size_t	st_strlen(char const *arr)
 {
 	size_t	c;
 
