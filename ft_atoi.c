@@ -6,9 +6,11 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 14:56:08 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/17 14:57:33 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/22 22:17:37 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 static int	st_spaceskip(const char *str)
 {
