@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dwarlock <dwarlock@students.21-school.ru>  +#+  +:+       +#+        */
+/*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 23:23:41 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/12 23:23:41 by kirus            ###   ########.fr       */
+/*   Created: 2021/10/21 23:02:57 by kirus             #+#    #+#             */
+/*   Updated: 2021/10/22 19:32:24 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int	i;
-	int	p;
+	t_list	*tmp;
 
-	p = 0;
-	i = 0;
-	while (s[i] != '\0')
+	while ((*lst)->next)
 	{
-		if (s[i] == c)
-			p = i;
-		i++;
-		if (s[i] == '\0' && c == 0)
-			p = i;
+		tmp = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = tmp;
 	}
-	if (p == 0 && s[p] != c)
-		return (NULL);
-	return (s + p);
+	del((*lst)->content);
+	free(lst);
+	free(tmp);
+	lst = NULL;
 }

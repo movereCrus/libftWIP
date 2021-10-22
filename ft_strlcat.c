@@ -6,11 +6,11 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 23:11:16 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/16 23:11:35 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/21 21:48:17 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
 
 static size_t	st_strlen(const char *arr)
 {

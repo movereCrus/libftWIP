@@ -6,11 +6,11 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 00:14:25 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/17 14:47:08 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/22 22:10:55 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {

@@ -6,11 +6,11 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 19:38:22 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/14 02:35:08 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/22 22:08:59 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t count)
 {

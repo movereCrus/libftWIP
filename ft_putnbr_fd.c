@@ -6,11 +6,11 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 22:34:18 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/19 22:35:24 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/22 22:09:35 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 static void	st_putchar_fd(char c, int fd)
 {

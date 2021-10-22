@@ -6,11 +6,11 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 22:26:43 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/19 22:35:58 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/22 22:09:24 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {

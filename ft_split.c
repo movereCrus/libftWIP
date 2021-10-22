@@ -6,11 +6,11 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:36:12 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/19 15:12:25 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/22 22:09:53 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static char	**st_freeall(char **str, unsigned int w)
 {

@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dwarlock <dwarlock@students.21-school.ru>  +#+  +:+       +#+        */
+/*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 23:23:41 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/12 23:23:41 by kirus            ###   ########.fr       */
+/*   Created: 2021/10/21 22:02:07 by kirus             #+#    #+#             */
+/*   Updated: 2021/10/21 22:26:36 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+t_list	*ft_lstnew(void *content)
 {
-	int	i;
-	int	p;
+	t_list	*tmp;
 
-	p = 0;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == c)
-			p = i;
-		i++;
-		if (s[i] == '\0' && c == 0)
-			p = i;
-	}
-	if (p == 0 && s[p] != c)
+	tmp = (t_list *)malloc(sizeof(t_list));
+	if (!tmp)
 		return (NULL);
-	return (s + p);
+	tmp->content = content;
+	tmp->next = NULL;
+	return (tmp);
 }

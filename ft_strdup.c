@@ -6,11 +6,11 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 15:42:23 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/17 15:42:24 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/22 22:10:00 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static char	*st_strcpy(char *dest, const char *src)
 {
