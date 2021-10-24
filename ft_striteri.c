@@ -6,32 +6,20 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 21:58:30 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/22 22:10:08 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/24 03:04:31 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	st_strlen(char const *arr)
-{
-	size_t	c;
-
-	c = 0;
-	while (arr[c] != '\0')
-		c++;
-	return (c);
-}
-
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	int	i;
-	int	len;
 
-	len = st_strlen(s);
-	i = len;
-	while (len > 0)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		f(len - i, s[len - i]);
-		i--;
+		f(i, &s[i]);
+		i++;
 	}
 }

@@ -12,17 +12,7 @@
 
 #include "libft.h"
 
-static size_t	st_strlen(char const *arr)
-{
-	size_t	c;
-
-	c = 0;
-	while (arr[c] != '\0')
-		c++;
-	return (c);
-}
-
-static int	st_bos(char *s10, char *set0)
+static int	st_bos(char const *s1, char const *set)
 {
 	size_t	bos;
 	size_t	eos;
@@ -30,12 +20,12 @@ static int	st_bos(char *s10, char *set0)
 
 	i = 0;
 	bos = 0;
-	eos = st_strlen(s10) - 1;
+	eos = ft_strlen(s1) - 1;
 	while (bos < eos)
 	{
-		while ((s10[bos] != set0[i]) && set0[i] != '\0')
+		while ((s1[bos] != set[i]) && set[i] != '\0')
 			i++;
-		if (i == st_strlen(set0))
+		if (i == ft_strlen(set))
 			break ;
 		bos++;
 		i = 0;
@@ -43,18 +33,18 @@ static int	st_bos(char *s10, char *set0)
 	return (bos);
 }
 
-static	int	st_eos(char *s10, char *set0, size_t bos)
+static	int	st_eos(char const *s1, char const *set, size_t bos)
 {
 	size_t	eos;
 	size_t	i;
 
 	i = 0;
-	eos = st_strlen(s10) - 1;
+	eos = ft_strlen(s1) - 1;
 	while (eos >= bos)
 	{
-		while ((s10[eos] != set0[i]) && set0[i] != '\0')
+		while ((s1[eos] != set[i]) && set[i] != '\0')
 			i++;
-		if (i == st_strlen(set0))
+		if (i == ft_strlen(set))
 			break ;
 		eos--;
 		i = 0;
@@ -62,12 +52,12 @@ static	int	st_eos(char *s10, char *set0, size_t bos)
 	return (eos);
 }
 
-char	*st_mallcpy(size_t eos, size_t bos, const char *s1)
+char	*st_mallcpy(size_t eos, size_t bos, char const *s1)
 {
 	size_t	i;
 	char	*s10;
 
-	s10 = (char *)malloc(eos - bos + 1);
+	s10 = (char *)malloc((eos - bos + 2) * sizeof(char));
 	if (s10 == NULL)
 		return (NULL);
 	i = 0;
@@ -81,29 +71,16 @@ char	*st_mallcpy(size_t eos, size_t bos, const char *s1)
 	return (s10);
 }
 
-char	*ft_strtrim(const char *s1, const char *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	bos;
 	size_t	eos;
-	char	*s10;
-	char	*set0;
 
-	s10 = (char *)s1;
-	set0 = (char *)set;
-	if (st_strlen(s10) == 0)
-		return (s10);
-	if (st_strlen(s10) == 1 && (*s10 == *set0))
-	{
-		s10 = "";
-		return (s10);
-	}
-	bos = st_bos(s10, set0);
-	eos = st_eos(s10, set0, bos);
-	if (eos - bos < 0)
-	{
-		s10 = "";
-		return (s10);
-	}
-	s10 = st_mallcpy(eos, bos, s1);
-	return (s10);
+	if (ft_strlen(s1) == 0 || (ft_strlen(s1) == 1 && (*s1 == *set)))
+		return (ft_strdup(""));
+	bos = st_bos(s1, set);
+	eos = st_eos(s1, set, bos);
+	if (eos < bos)
+		return (ft_strdup(""));
+	return (st_mallcpy(eos, bos, s1));
 }

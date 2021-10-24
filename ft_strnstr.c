@@ -6,7 +6,7 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 00:14:25 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/22 22:10:55 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/23 20:00:11 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 			if (to_find[ptr2] == '\0' && len >= 0)
 				return ((char *)&str[ptr1 - ptr2]);
 		}
+		len = len + ptr2 - 1;
+		ptr1 = ptr1 - ptr2 + 1;
 		ptr2 = 0;
-		ptr1++;
-		len--;
 	}
 	return (NULL);
 }

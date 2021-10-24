@@ -12,23 +12,13 @@
 
 #include "libft.h"
 
-static size_t	st_strlen(char const *arr)
-{
-	size_t	c;
-
-	c = 0;
-	while (arr[c] != '\0')
-		c++;
-	return (c);
-}
-
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char			*news;
 	unsigned int	i;
 
 	i = 0;
-	news = (char *)malloc(st_strlen(s1) + st_strlen(s2) + 1);
+	news = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (news == NULL)
 		return (NULL);
 	while (*s1 != '\0')

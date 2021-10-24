@@ -6,7 +6,7 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 14:56:08 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/22 22:17:37 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/23 15:58:58 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_atoi(const char *str)
 	int	pos;
 
 	neg = 0;
-	pos = st_spaceSkip(str);
+	pos = st_spaceskip(str);
 	str += pos;
 	if (*str == '+' || *str == '-')
 	{

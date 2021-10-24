@@ -6,13 +6,13 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:36:12 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/22 22:09:53 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/24 01:03:39 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**st_freeall(char **str, unsigned int w)
+static char	**st_freeall(char **str, size_t w)
 {
 	while (w > 0)
 	{
@@ -25,10 +25,10 @@ static char	**st_freeall(char **str, unsigned int w)
 	return (str);
 }
 
-static char	**st_strcpy(char const *s, char c, char **str, unsigned int w)
+static char	**st_strfill(char const *s, char c, char **str, size_t w)
 {
-	unsigned int	i;
-	unsigned int	p;
+	size_t	i;
+	size_t	p;
 
 	p = 0;
 	i = 0;
@@ -53,10 +53,10 @@ static char	**st_strcpy(char const *s, char c, char **str, unsigned int w)
 	return (str);
 }
 
-static char	**st_wordmalloc(char const *s, char c, char **str, unsigned int w)
+static char	**st_wordmalloc(char const *s, char c, char **str, size_t w)
 {
-	unsigned int	i;
-	unsigned int	p;
+	size_t	i;
+	size_t	p;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -71,25 +71,19 @@ static char	**st_wordmalloc(char const *s, char c, char **str, unsigned int w)
 			}
 			str[w] = (char *)malloc((p + 1) * sizeof(char));
 			if (str[w] == NULL)
-			{
-				str = st_freeall(str, w);
-				return (str);
-			}
+				return (st_freeall(str, w));
 			w++;
 		}
-		i++;
+		else
+			i++;
 	}
 	return (str);
 }
 
-static char	**st_strmalloc(char const *s, char c)
+static char	**st_strmalloc(char const *s, char c, size_t w, size_t i)
 {
-	unsigned int	i;
-	unsigned int	w;
-	char			**str;
+	char	**str;
 
-	i = 0;
-	w = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] != c)
@@ -101,7 +95,7 @@ static char	**st_strmalloc(char const *s, char c)
 		else
 			i++;
 	}
-	str = (char **)malloc(w * sizeof(char *));
+	str = (char **)malloc((w + 1) * sizeof(char *));
 	if (str == NULL)
 		return (NULL);
 	return (str);
@@ -109,16 +103,16 @@ static char	**st_strmalloc(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	unsigned int	w;
-	unsigned int	p;
-	unsigned int	i;
-	char			**str;
+	size_t	w;
+	size_t	p;
+	size_t	i;
+	char	**str;
 
 	i = 0;
 	p = 0;
 	w = 0;
-	str = st_strmalloc(s, c);
+	str = st_strmalloc(s, c, w, i);
 	str = st_wordmalloc(s, c, str, w);
-	str = st_strcpy(s, c, str, w);
+	str = st_strfill(s, c, str, w);
 	return (str);
 }

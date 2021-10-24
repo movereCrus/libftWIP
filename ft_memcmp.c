@@ -23,7 +23,7 @@ int	ft_memcmp(const void *str1, const void *str2, size_t count)
 	i = 0;
 	str01 = (unsigned char *)str1;
 	str02 = (unsigned char *)str2;
-	while (diff == 0 && count != 0 && (str01[i] != '\0' || str02[i] != '\0'))
+	while (diff == 0 && count != 0)
 	{
 		diff = str01[i] - str02[i];
 		i++;

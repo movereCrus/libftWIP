@@ -6,27 +6,33 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 21:00:48 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/22 22:07:48 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/24 02:29:48 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*st_conv(char *str, int n, int l)
+static char	*st_conv(char *str, int n)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	tmp;
 
-	i = l;
-	if (n == 0)
-		str = "0";
-	else if (n == -2147483648)
-		str = "-2147483648";
-	else
+	i = 0;
+	j = -1;
+	if (n < 0)
+		n = -n;
+	while (n > 0)
 	{
-		if (n / 10 > 0)
-			str = st_conv(str, n / 10, --l);
-		n %= 10;
-		str[i] = n + 48;
+		str[i++] = (n % 10) + 48;
+		n /= 10;
+	}
+	str[i] = '\0';
+	while (++j < i / 2)
+	{
+		tmp = str[j];
+		str[j] = str[i - 1 - j];
+		str[i - 1 - j] = tmp;
 	}
 	return (str);
 }
@@ -39,9 +45,13 @@ char	*ft_itoa(int n)
 
 	l = 0;
 	t = n;
-	if (n < 0 && n != -2147483648)
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n < 0)
 		t = -n;
-	while (t > 0 && n != -2147483648)
+	while (t > 0)
 	{
 		t /= 10;
 		l++;
@@ -49,13 +59,8 @@ char	*ft_itoa(int n)
 	str = (char *)malloc((l + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
-	if (n < 0 && n != -2147483648)
-	{
-		str[0] = '-';
-		n = -n;
-		str = st_conv(str, n, l);
-	}
-	else
-		str = st_conv(str, n, --l);
+	str = st_conv(str, n);
+	if (n < 0)
+		return (ft_strjoin("-", str));
 	return (str);
 }

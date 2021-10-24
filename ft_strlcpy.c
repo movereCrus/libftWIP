@@ -12,10 +12,22 @@
 
 #include "libft.h"
 
+static size_t	st_strlen(char const *arr)
+{
+	size_t	c;
+
+	c = 0;
+	while (arr[c] != '\0')
+		c++;
+	return (c);
+}
+
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	ctr;
 
+	if (size == 0)
+		return (st_strlen(src));
 	ctr = 0;
 	while (ctr < size - 1 && src[ctr] != '\0')
 	{
