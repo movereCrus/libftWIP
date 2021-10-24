@@ -6,7 +6,7 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 23:02:57 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/22 19:32:24 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/24 06:20:02 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,13 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*tmp;
 
-	while ((*lst)->next)
+	while (*lst)
 	{
-		tmp = (*lst)->next;
-		del((*lst)->content);
-		free(*lst);
-		*lst = tmp;
+		if ((*lst)->content)
+			del((*lst)->content);
+		tmp = (*lst);
+		*lst = (*lst)->next;
+		free(tmp);
 	}
-	del((*lst)->content);
-	free(lst);
-	free(tmp);
 	lst = NULL;
 }

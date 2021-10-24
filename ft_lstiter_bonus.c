@@ -6,7 +6,7 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 22:12:07 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/22 22:12:10 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/24 06:25:40 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while (lst->next)
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
 		f(lst->content);
 		lst = lst->next;
