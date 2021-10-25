@@ -6,26 +6,27 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:36:12 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/24 01:03:39 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/25 03:20:56 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**st_freeall(char **str, size_t w)
+static char	**ft_freeall(char **str)
 {
-	while (w > 0)
+	unsigned int	i;
+
+	i = 0;
+	while (str[i] != NULL)
 	{
-		free(str[w]);
-		w--;
+		free(str[i]);
+		i++;
 	}
-	free(str[0]);
 	free(str);
-	str = NULL;
-	return (str);
+	return (NULL);
 }
 
-static char	**st_strfill(char const *s, char c, char **str, size_t w)
+static char	**ft_strfill(char const *s, char c, char **str, size_t w)
 {
 	size_t	i;
 	size_t	p;
@@ -53,7 +54,7 @@ static char	**st_strfill(char const *s, char c, char **str, size_t w)
 	return (str);
 }
 
-static char	**st_wordmalloc(char const *s, char c, char **str, size_t w)
+static char	**ft_wordmalloc(char const *s, char c, char **str, size_t w)
 {
 	size_t	i;
 	size_t	p;
@@ -71,7 +72,7 @@ static char	**st_wordmalloc(char const *s, char c, char **str, size_t w)
 			}
 			str[w] = (char *)malloc((p + 1) * sizeof(char));
 			if (str[w] == NULL)
-				return (st_freeall(str, w));
+				return (ft_freeall(str));
 			w++;
 		}
 		else
@@ -80,7 +81,7 @@ static char	**st_wordmalloc(char const *s, char c, char **str, size_t w)
 	return (str);
 }
 
-static char	**st_strmalloc(char const *s, char c, size_t w, size_t i)
+static char	**ft_strmalloc(char const *s, char c, size_t w, size_t i)
 {
 	char	**str;
 
@@ -96,8 +97,6 @@ static char	**st_strmalloc(char const *s, char c, size_t w, size_t i)
 			i++;
 	}
 	str = (char **)malloc((w + 1) * sizeof(char *));
-	if (str == NULL)
-		return (NULL);
 	return (str);
 }
 
@@ -111,8 +110,12 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	p = 0;
 	w = 0;
-	str = st_strmalloc(s, c, w, i);
-	str = st_wordmalloc(s, c, str, w);
-	str = st_strfill(s, c, str, w);
+	if (s == NULL)
+		return (NULL);
+	str = ft_strmalloc(s, c, w, i);
+	if (str == NULL)
+		return (NULL);
+	str = ft_wordmalloc(s, c, str, w);
+	str = ft_strfill(s, c, str, w);
 	return (str);
 }

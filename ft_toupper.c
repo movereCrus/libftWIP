@@ -6,7 +6,7 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 15:16:08 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/23 15:16:21 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/24 22:24:43 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int	ft_toupper(int c)
 {
-	if (c > 96 && c < 123)
-		return (c - 32);
-	return (c);
+	unsigned char	ch;
+
+	ch = (unsigned char)c;
+	if (ch > 'a' && ch < 'z')
+		return (ch - 32);
+	return (ch);
 }

@@ -6,7 +6,7 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 22:20:27 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/22 22:09:41 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/25 03:13:07 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (s == NULL)
+		return ;
 	while (s[i] != '\0')
 	{
 		write(fd, &s[i], 1);

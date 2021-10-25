@@ -76,6 +76,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	bos;
 	size_t	eos;
 
+	if (s1 == NULL || set == NULL)
+		return (NULL);
 	if (ft_strlen(s1) == 0 || (ft_strlen(s1) == 1 && (*s1 == *set)))
 		return (ft_strdup(""));
 	bos = st_bos(s1, set);

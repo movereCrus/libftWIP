@@ -6,7 +6,7 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 19:38:22 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/22 22:08:59 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/25 03:34:08 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dest, const void *src, size_t count)
 
 	src0 = (const unsigned char *)src;
 	dest0 = (unsigned char *)dest;
+	if (dest0 == src0)
+		return (dest0);
 	if (dest0 < src0)
 		while (count-- > 0)
 			*dest0++ = *src0++;

@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	unsigned int	i;
 
 	i = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	news = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (news == NULL)
 		return (NULL);

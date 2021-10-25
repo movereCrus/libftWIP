@@ -6,7 +6,7 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 21:58:30 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/24 03:04:31 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/25 03:13:19 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	int	i;
 
 	i = 0;
+	if (s == NULL || f == NULL)
+		return ;
 	while (s[i] != '\0')
 	{
 		f(i, &s[i]);
