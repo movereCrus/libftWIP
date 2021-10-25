@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static void	st_putchar_fd(char c, int fd)
+static void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
@@ -26,13 +26,13 @@ void	ft_putnbr_fd(int n, int fd)
 	num = '0';
 	if (n == -2147483648)
 	{
-		st_putchar_fd('-', fd);
-		st_putchar_fd('2', fd);
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
 		n = 147483648;
 	}
 	else if (n < 0)
 	{
-		st_putchar_fd('-', fd);
+		ft_putchar_fd('-', fd);
 		n = -n;
 	}
 	if (n / 10 != 0)

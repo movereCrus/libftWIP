@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static char	*st_conv(char *str, int n)
+static char	*ft_conv(char *str, int n)
 {
 	int		i;
 	int		j;
@@ -59,7 +59,7 @@ char	*ft_itoa(int n)
 	str = (char *)malloc((l + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
-	str = st_conv(str, n);
+	str = ft_conv(str, n);
 	if (n < 0)
 		return (ft_strjoin("-", str));
 	return (str);

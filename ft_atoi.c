@@ -29,7 +29,7 @@ static size_t	ft_evnumber(size_t neg, const char *str)
 	num0 = 0;
 	while (*str > 47 && *str < 58)
 	{
-		if ((i > 17) && ((*str - 48 > 7 && num0 == MAX) || num0 > MAX))
+		if ((i > 17) && ((*str - 48 >= 7 && num0 == MAX) || num0 > MAX))
 		{
 			if (neg > 0)
 				return (0);

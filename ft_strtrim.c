@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	st_bos(char const *s1, char const *set)
+static int	ft_bos(char const *s1, char const *set)
 {
 	size_t	bos;
 	size_t	eos;
@@ -33,7 +33,7 @@ static int	st_bos(char const *s1, char const *set)
 	return (bos);
 }
 
-static	int	st_eos(char const *s1, char const *set, size_t bos)
+static	int	ft_eos(char const *s1, char const *set, size_t bos)
 {
 	size_t	eos;
 	size_t	i;
@@ -52,7 +52,7 @@ static	int	st_eos(char const *s1, char const *set, size_t bos)
 	return (eos);
 }
 
-char	*st_mallcpy(size_t eos, size_t bos, char const *s1)
+char	*ft_mallcpy(size_t eos, size_t bos, char const *s1)
 {
 	size_t	i;
 	char	*s10;
@@ -80,9 +80,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	if (ft_strlen(s1) == 0 || (ft_strlen(s1) == 1 && (*s1 == *set)))
 		return (ft_strdup(""));
-	bos = st_bos(s1, set);
-	eos = st_eos(s1, set, bos);
+	bos = ft_bos(s1, set);
+	eos = ft_eos(s1, set, bos);
 	if (eos < bos)
 		return (ft_strdup(""));
-	return (st_mallcpy(eos, bos, s1));
+	return (ft_mallcpy(eos, bos, s1));
 }

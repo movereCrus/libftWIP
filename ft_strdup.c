@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static char	*st_strcpy(char *dest, const char *src)
+static char	*ft_strcpy(char *dest, const char *src)
 {
 	int	ctr;
 
@@ -33,6 +33,6 @@ char	*ft_strdup(const char *str)
 	dest = (char *)malloc((ft_strlen(str) + 1) * sizeof(char));
 	if (dest == NULL)
 		return (NULL);
-	st_strcpy(dest, str);
+	ft_strcpy(dest, str);
 	return (dest);
 }
