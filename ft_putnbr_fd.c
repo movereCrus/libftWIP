@@ -6,16 +6,11 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 22:34:18 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/22 22:09:35 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/26 17:02:01 by dwarlock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
 
 void	ft_putnbr_fd(int n, int fd)
 {

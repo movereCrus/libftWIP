@@ -24,15 +24,12 @@ OBJS		=	$(patsubst %.c,%.o,$(SRCS))
 
 BONUS_OBJS	=	$(patsubst %.c,%.o,$(BONUS_SRCS))
 
-all: $(SRCS) $(NAME)
+all: $(NAME)
 
-bonus: $(BONUS_OBJS)
-	ar rc $(NAME) $(BONUS_OBJS)
-	ranlib $(NAME)
+$(NAME): $(OBJS) $(if $(findstring bonus, $(MAKECMDGOALS)), $(BONUS_OBJS))
+	ar rcs $(NAME) $?
 
-$(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+bonus: $(NAME)
 
 %.o : %.c $(HEADER)
 	$(CC) $(CFLAGS) -I $(HEADER) $< -o $@
