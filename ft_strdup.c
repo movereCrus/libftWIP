@@ -6,7 +6,7 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 15:42:23 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/24 03:01:13 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/29 20:45:19 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*ft_strcpy(char *dest, const char *src)
 {
-	int	ctr;
+	size_t	ctr;
 
 	ctr = 0;
 	while (*(src + ctr) != '\0')

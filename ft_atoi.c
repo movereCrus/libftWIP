@@ -6,19 +6,12 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 14:56:08 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/25 03:22:37 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/29 20:59:21 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #define MAX 922337203685477580
-
-static char	*ft_spaceskip(const char *str)
-{
-	while ((*str < 14 && *str > 8) || *str == ' ')
-		str++;
-	return ((char *)str);
-}
 
 static size_t	ft_evnumber(size_t neg, const char *str)
 {
@@ -49,7 +42,8 @@ int	ft_atoi(const char *str)
 	size_t	neg;
 
 	neg = 0;
-	str = ft_spaceskip(str);
+	while ((*str < 14 && *str > 8) || *str == ' ')
+		str++;
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')

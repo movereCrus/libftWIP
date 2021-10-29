@@ -6,7 +6,7 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 00:14:25 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/26 21:30:21 by dwarlock         ###   ########.fr       */
+/*   Updated: 2021/10/29 20:52:21 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	int	ptr1;
-	int	ptr2;
+	size_t	ptr1;
+	size_t	ptr2;
 
 	ptr1 = 0;
 	ptr2 = 0;

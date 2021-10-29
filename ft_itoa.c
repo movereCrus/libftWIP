@@ -6,34 +6,31 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 21:00:48 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/24 02:29:48 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/29 19:45:50 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_conv(char *str, int n)
+static char	*ft_conv(char *str, int n, int l)
 {
-	int		i;
-	int		j;
-	char	tmp;
+	int	t;
 
-	i = 0;
-	j = -1;
 	if (n < 0)
-		n = -n;
-	while (n > 0)
 	{
-		str[i++] = (n % 10) + 48;
-		n /= 10;
+		l++;
+		t = -n;
 	}
-	str[i] = '\0';
-	while (++j < i / 2)
+	else
+		t = n;
+	str[l--] = '\0';
+	while (t > 0)
 	{
-		tmp = str[j];
-		str[j] = str[i - 1 - j];
-		str[i - 1 - j] = tmp;
+		str[l--] = (t % 10) + 48;
+		t /= 10;
 	}
+	if (n < 0)
+		str[l] = '-';
 	return (str);
 }
 
@@ -56,11 +53,12 @@ char	*ft_itoa(int n)
 		t /= 10;
 		l++;
 	}
-	str = (char *)malloc((l + 1) * sizeof(char));
+	if (n > 0)
+		str = (char *)malloc((l + 1) * sizeof(char));
+	else
+		str = (char *)malloc((l + 2) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
-	str = ft_conv(str, n);
-	if (n < 0)
-		return (ft_strjoin("-", str));
+	str = ft_conv(str, n, l);
 	return (str);
 }

@@ -14,8 +14,8 @@
 
 int	ft_strncmp(const char *str1, const char *str2, size_t count)
 {
-	int	diff;
-	int	i;
+	int		diff;
+	size_t	i;
 
 	diff = 0;
 	i = 0;

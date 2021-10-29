@@ -6,7 +6,7 @@
 /*   By: kirus <kirus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 15:26:25 by kirus             #+#    #+#             */
-/*   Updated: 2021/10/24 00:35:11 by kirus            ###   ########.fr       */
+/*   Updated: 2021/10/29 20:40:13 by kirus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int				i;
+	size_t			i;
 	char			*str;
 	unsigned char	ch;
 

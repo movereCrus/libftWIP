@@ -14,8 +14,8 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char			*news;
-	unsigned int	i;
+	char	*news;
+	size_t	i;
 
 	i = 0;
 	if (s1 == NULL || s2 == NULL)
